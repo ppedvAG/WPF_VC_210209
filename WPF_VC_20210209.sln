@@ -7,11 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modul01_HelloWPF", "HelloWP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modul02_Controls", "Controls\Modul02_Controls.csproj", "{8C0A5F53-8D97-4575-989E-2D63B779AE4B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Personendatenbank", "Personendatenbank\Personendatenbank.csproj", "{D2C56A28-9B6D-4830-BCBD-841D31628201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab_Personendatenbank", "Personendatenbank\Lab_Personendatenbank.csproj", "{D2C56A28-9B6D-4830-BCBD-841D31628201}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul03_Container", "Container\Modul03_Container.csproj", "{B6D3EADA-ACCC-4971-AE96-F0799490592C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modul03_Container", "Container\Modul03_Container.csproj", "{B6D3EADA-ACCC-4971-AE96-F0799490592C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul04_EventHandling", "EventHandling\Modul04_EventHandling.csproj", "{37B60145-B379-494A-98AB-960CDF8FCFE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modul04_EventHandling", "EventHandling\Modul04_EventHandling.csproj", "{37B60145-B379-494A-98AB-960CDF8FCFE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul05_PropertyBinding", "PropertyBinding\Modul05_PropertyBinding.csproj", "{1053DB8C-CDB5-4B4C-9FB0-F03D3AAF8D77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_MultiBinding", "MultiBinding\Lab_MultiBinding.csproj", "{47E67B53-9ACB-47E9-9CD8-5CA24587EF32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{37B60145-B379-494A-98AB-960CDF8FCFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37B60145-B379-494A-98AB-960CDF8FCFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37B60145-B379-494A-98AB-960CDF8FCFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1053DB8C-CDB5-4B4C-9FB0-F03D3AAF8D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1053DB8C-CDB5-4B4C-9FB0-F03D3AAF8D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1053DB8C-CDB5-4B4C-9FB0-F03D3AAF8D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1053DB8C-CDB5-4B4C-9FB0-F03D3AAF8D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E67B53-9ACB-47E9-9CD8-5CA24587EF32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E67B53-9ACB-47E9-9CD8-5CA24587EF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E67B53-9ACB-47E9-9CD8-5CA24587EF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E67B53-9ACB-47E9-9CD8-5CA24587EF32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
