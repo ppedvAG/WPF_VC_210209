@@ -62,5 +62,17 @@ namespace Personendatenbank
             Log.Append(Environment.NewLine);
         }
         #endregion
+
+        private void Btn_Ok_Click(object sender, RoutedEventArgs e)
+        {
+            Person neuePerson = this.DataContext as Person;
+
+            string ausgabe = neuePerson.Vorname + " " + neuePerson.Nachname + " (" + neuePerson.Geschlecht + ")\n" + neuePerson.Geburtsdatum.ToShortDateString() + "\n" + neuePerson.Lieblingsfarbe.ToString();
+            if (neuePerson.Verheiratet) ausgabe = ausgabe + "\nIst verheiratet";
+            if (MessageBox.Show(ausgabe + "\nAbspeichern?", neuePerson.Vorname + " " + neuePerson.Nachname, MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
