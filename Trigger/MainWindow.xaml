@@ -55,6 +55,31 @@
             </TextBlock.Style>
         </TextBlock>
         <Button x:Name="Btn_Ändern" Click="Btn_Ändern_Click" Content="Ändern"/>
+        
+        <!--Beispiel für MultiDataTrigger mit OR-Mechanik-->
+        <!--(umgedrehte Logik: d.h. Es werden die gegenteiligen Bedingungen geprüft. Standartmäßig ist
+        der Trigger getriggert. Wenn eine Box abgehakt wird, gilt der Trigger nicht mehr und es wird
+        der Style-Setter gesetzt. Aus AND wird OR.)-->
+        <StackPanel x:Name="ORMultiDataTrigger">
+            <CheckBox x:Name="Cbx_Eins" Content="Eins"/>
+            <CheckBox x:Name="Cbx_Zwei" Content="Zwei"/>
+            <TextBlock>
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="Mindestens eine Box ist abgehakt"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=Cbx_Eins, Path=IsChecked}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=Cbx_Zwei, Path=IsChecked}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Text" Value="Keine Box ist abgehakt"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>
     
     </StackPanel>
 </Window>
