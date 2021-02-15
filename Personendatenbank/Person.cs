@@ -69,6 +69,7 @@ namespace Personendatenbank
             this.Nachname = String.Empty;
             this.Geburtsdatum = DateTime.Now;
         }
+
     }
 }
 
