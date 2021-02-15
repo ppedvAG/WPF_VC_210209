@@ -8,8 +8,6 @@
         Title="MainWindow" Height="378" Width="266">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="Aqua"/>
-
             <Setter Property="Template">
                 <Setter.Value>
                     <!--ControlTemplates definieren ein vollständig neues Layout für bestehende Elemente.
@@ -33,7 +31,7 @@
                                 <Setter TargetName="Bdr_Template" Property="Background" Value="LightBlue"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="DarkBlue"/>
+                                <Setter TargetName="Bdr_Template" Property="Background" Value="LightBlue"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -45,7 +43,7 @@
     <StackPanel x:Name="main">
         <Button Content="Klick mich" Width="100" Height="100"
                 x:Name="Btn_ControlsTemplate" Click="Btn_ControlsTemplate_Click"
-                Background="Green"/>
+                Background="Aqua"/>
 
         <ListBox x:Name="Lbx_Personen" Height="100"
                  ItemsSource="{Binding Personenliste}"

@@ -34,6 +34,22 @@
                             MethodName="GetProperties"
                             ObjectInstance="{StaticResource Odp_Colors}"/>
 
+        <ControlTemplate x:Key="CtpError">
+            <StackPanel Orientation="Horizontal">
+                <Border BorderBrush="Red" BorderThickness="1" x:Name="BdrAep">
+                    <AdornedElementPlaceholder x:Name="Aep"/>
+                </Border>
+                <TextBlock Text="!" Foreground="Red" FontSize="{StaticResource Dbl_Fontsize}"
+                           Margin="3,0" FontWeight="Bold" VerticalAlignment="Center"/>
+                <Popup AllowsTransparency="True" PopupAnimation="Slide"
+                       PlacementTarget="{Binding ElementName=BdrAep}" Placement="Bottom"
+                       IsOpen="{Binding ElementName=Aep, Path=AdornedElement.IsMouseOver, Mode=OneWay}">
+                    <TextBlock Text="{Binding ElementName=Aep, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                               Foreground="White" Background="Red" Padding="3" FontSize="{StaticResource Dbl_Fontsize}"/>
+                </Popup>
+            </StackPanel>
+        </ControlTemplate>
+        
     </Window.Resources>
 
     <Grid Margin="10">
@@ -65,40 +81,44 @@
 
         <TextBox x:Name="Tbx_Vorname"
                  Grid.Column="1"
-                 Text="{Binding Vorname}"/>
+                 Text="{Binding Vorname, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                 Validation.ErrorTemplate="{StaticResource CtpError}"/>
 
-        <TextBox x:Name="Tbx_Nachname"
+            <TextBox x:Name="Tbx_Nachname"
                  Grid.Column="1" Grid.Row="1"
-                 Text="{Binding Nachname}"/>
+                 Text="{Binding Nachname, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                 Validation.ErrorTemplate="{StaticResource CtpError}"/>
 
-        <DatePicker x:Name="Dpr_Geburtsdatum"
+            <DatePicker x:Name="Dpr_Geburtsdatum"
                     Grid.Column="1" Grid.Row="2"
-                    SelectedDate="{Binding Geburtsdatum}"/>
+                    SelectedDate="{Binding Geburtsdatum, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                 Validation.ErrorTemplate="{StaticResource CtpError}"/>
 
-        <CheckBox x:Name="Cbx_Verheiratet"
+            <CheckBox x:Name="Cbx_Verheiratet"
                   Grid.Column="1" Grid.Row="3"
                   IsChecked="{Binding Verheiratet}"/>
 
-        <ComboBox x:Name="Cbb_Lieblingsfarbe"
+            <ComboBox x:Name="Cbb_Lieblingsfarbe"
                   Grid.Column="1" Grid.Row="4"
                   VerticalAlignment="Center"
                   Margin="2"
-                  SelectedValue="{Binding Lieblingsfarbe}"
+                  SelectedValue="{Binding Lieblingsfarbe, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                  Validation.ErrorTemplate="{StaticResource CtpError}"
                   SelectedValuePath="Name"
                   ItemsSource="{Binding Source={StaticResource Odp_ColorsProperties}}">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Border BorderBrush="Black" BorderThickness="1" Width="20" Height="20" Margin="5,0">
-                            <Rectangle Width="20" Height="20" Fill="{Binding Name}"/>
-                        </Border>
-                        <TextBlock Text="{Binding Name}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Border BorderBrush="Black" BorderThickness="1" Width="20" Height="20" Margin="5,0">
+                                <Rectangle Width="20" Height="20" Fill="{Binding Name}"/>
+                            </Border>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
-        <StackPanel Margin="2"
+            <StackPanel Margin="2"
                     Grid.Column="1" Grid.Row="5">
             <RadioButton Content="M"
                          GroupName="Rbg_Gender"
