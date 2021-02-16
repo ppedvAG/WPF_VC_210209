@@ -3,12 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:uc="clr-namespace:UserControls;assembly=UserControls"
+        
         xmlns:local="clr-namespace:Trigger"
         mc:Ignorable="d"
         Title="MainWindow" Height="363" Width="267">
     <!--Mittels Trigger kann das Verhalten/Aussehen von Objekten unter bestimmten Umständen geändert werden-->
     <StackPanel x:Name="Spl_Main"
                 Background="{Binding ElementName=ColorPicker, Path=PickedColor}">
+        
         <StackPanel.Triggers>
             <!--EventTrigger reagieren auf ein geworfenes RoutedEvent und werden dafür verwendet,
             Storyboards zu starten. EventTrigger sind die einzige Triggerart, die direkt in die 
@@ -80,6 +84,9 @@
                 </TextBlock.Style>
             </TextBlock>
         </StackPanel>
-    
+
+        <!--Beispiel-Einbindung des UserControls aus M11_UserControls-->
+        <uc:ColorPicker x:Name="ColorPicker"/>
+
     </StackPanel>
 </Window>

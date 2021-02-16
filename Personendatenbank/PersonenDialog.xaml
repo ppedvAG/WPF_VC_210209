@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personendatenbank"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:uc="clr-namespace:UserControls;assembly=UserControls"
         mc:Ignorable="d"
         Title="Neue Person" 
-        Height="279" Width="299" ResizeMode="NoResize" 
+        Height="309" Width="299" ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" Topmost="True"
         PreviewKeyDown="Window_PreviewKeyDown"
         PreviewMouseDown="LogAction"
@@ -58,6 +59,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -131,8 +133,13 @@
                          IsChecked="{Binding Geschlecht, Converter={StaticResource gender2bool}, ConverterParameter={x:Static local:Gender.Divers}}"/>
 
         </StackPanel>
+    
+        <uc:IntegerUpDown x:Name="Iud_Kinder" 
+                          Grid.Row="6" Grid.Column="1" Margin="2"
+                          Value="{Binding Kinder, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                          Validation.ErrorTemplate="{StaticResource CtpError}"/>
 
-        <WrapPanel Grid.Row="6" Grid.ColumnSpan="2"
+        <WrapPanel Grid.Row="7" Grid.ColumnSpan="2"
                    HorizontalAlignment="Right" Margin="0,5">
             <Button x:Name="Btn_Ok"
                     Content="OK"
@@ -149,6 +156,7 @@
                                     <Condition Binding="{Binding ElementName=Tbx_Nachname, Path=(Validation.HasError)}" Value="False"/>
                                     <Condition Binding="{Binding ElementName=Dpr_Geburtsdatum, Path=(Validation.HasError)}" Value="False"/>
                                     <Condition Binding="{Binding ElementName=Cbb_Lieblingsfarbe, Path=(Validation.HasError)}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=Iud_Kinder, Path=(Validation.HasError)}" Value="False"/>
                                 </MultiDataTrigger.Conditions>
 
                                 <Setter Property="IsEnabled" Value="True"/>
@@ -159,7 +167,8 @@
                 </Button.Style>
             </Button>
             <Button x:Name="Btn_Abbruch"
-                    Content="Abbrechen"/>
+                    Content="Abbrechen" 
+                    Click="Btn_Abbruch_Click"/>
         </WrapPanel>
     </Grid>
 </Window>
