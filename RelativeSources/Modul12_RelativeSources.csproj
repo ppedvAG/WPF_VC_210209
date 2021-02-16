@@ -4,12 +4,8 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <RootNamespace>Trigger</RootNamespace>
-    <AssemblyName>Trigger</AssemblyName>
+    <RootNamespace>RelativeSources</RootNamespace>
+    <AssemblyName>RelativeSources</AssemblyName>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\UserControls\Modul11_UserControls.csproj" />
-  </ItemGroup>
 
 </Project>

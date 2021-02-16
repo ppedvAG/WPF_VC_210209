@@ -26,9 +26,15 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.RowSpan="2"  VerticalContentAlignment="Center" Text="{Binding ElementName=Uc_IntUpDown, Path=Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <TextBox Grid.RowSpan="2" VerticalContentAlignment="Center" Text="{Binding ElementName=Uc_IntUpDown, Path=Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
-        <Button Grid.Column="1" Content="&#11205;" x:Name="Btn_Up" Click="Btn_Up_Click"/>
-        <Button Grid.Column="1" Grid.Row="2" Content="&#11206;" x:Name="Btn_Down" Click="Btn_Down_Click"/>
+        <Button Grid.Column="1" 
+                Content="&#11205;"
+                x:Name="Btn_Up" 
+                Click="Btn_Up_Click"/>
+        <Button Grid.Column="1" Grid.Row="2" 
+                Content="&#11206;"
+                x:Name="Btn_Down" 
+                Click="Btn_Down_Click"/>
     </Grid>
 </UserControl>

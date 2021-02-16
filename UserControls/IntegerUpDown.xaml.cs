@@ -30,7 +30,7 @@ namespace UserControls
 
         // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(int), typeof(IntegerUpDown), new PropertyMetadata(default(int)));
+            DependencyProperty.Register("Value", typeof(int), typeof(IntegerUpDown), new FrameworkPropertyMetadata(default(int)));
 
         private void Btn_Up_Click(object sender, RoutedEventArgs e)
         {
