@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,14 +15,11 @@ using System.Windows.Shapes;
 namespace MVVM.View
 {
     /// <summary>
-    /// Interaction logic for StartView.xaml
+    /// Interaction logic for ListView.xaml
     /// </summary>
-    public partial class StartView : Window
+    public partial class ListView : Window
     {
-        //Außer dem Konstruktor mit der InitializeComponent()-Methode
-        //sollte im CodeBehind der xaml-Dateien nicht stehen
-
-        public StartView()
+        public ListView()
         {
             InitializeComponent();
         }

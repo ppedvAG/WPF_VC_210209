@@ -80,6 +80,8 @@
                    Grid.Row="4"/>
         <TextBlock Text="Geschlecht:" 
                    Grid.Row="5"/>
+        <TextBlock Text="Kinder:" 
+                   Grid.Row="6"/>
 
         <TextBox x:Name="Tbx_Vorname"
                  Grid.Column="1"

@@ -8,8 +8,8 @@ using System.Windows.Media;
 
 namespace MVVM.Model
 {
-    public enum Gender { Männlich, Weiblich, Divers }
-
+    //Der Model-Teil beinhaltet alle Modelklassen und evtl. Klassen, welche nur mit diesen interagieren.
+    //Keine Model-Klasse darf einen Referenz auf den ViewModel- oder den Model-Teil beinhalten
     public class Person : INotifyPropertyChanged, IDataErrorInfo
     {
         public static ObservableCollection<Person> Personenliste { get; set; } = new ObservableCollection<Person>();
