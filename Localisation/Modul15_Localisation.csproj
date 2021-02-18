@@ -4,16 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <RootNamespace>Personendatenbank</RootNamespace>
-    <AssemblyName>Personendatenbank</AssemblyName>
+    <RootNamespace>Localisation</RootNamespace>
+    <AssemblyName>Localisation</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UserControls\Modul11_UserControls.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Loc\Strings.Designer.cs">
+    <Compile Update="Lokalisierung\Strings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Strings.resx</DependentUpon>
@@ -21,10 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Loc\Strings.en-US.resx">
+    <EmbeddedResource Update="Lokalisierung\Strings.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Loc\Strings.resx">
+    <EmbeddedResource Update="Lokalisierung\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>

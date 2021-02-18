@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -67,6 +69,37 @@ namespace Personendatenbank
                 if (dialog.ShowDialog() == true)
                     Personenliste[Dgd_Personen.SelectedIndex] = (dialog.DataContext as Person);
             }
+        }
+
+        private void ChangeLanguage(object sender, RoutedEventArgs e)
+        {
+            switch ((sender as MenuItem).Name)
+            {
+                case "Mei_Deutsch":
+                    if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+                        ReloadWindow();
+
+                        File.WriteAllText("settings.txt", "language=de-DE");
+                    }
+                    break;
+                case "Mei_Englisch":
+                    if (Thread.CurrentThread.CurrentUICulture.Name != "en-US")
+                    {
+                        Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                        ReloadWindow();
+
+                        File.WriteAllText("settings.txt", "language=en-US");
+                    }
+                    break;
+            }
+        }
+
+        private void ReloadWindow()
+        {
+            new Db_Uebersicht().Show();
+            this.Close();
         }
     }
 }

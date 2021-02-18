@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personendatenbank"
+        xmlns:loc="clr-namespace:Personendatenbank.Loc"
         mc:Ignorable="d"
         Title="Personendatenbank" Height="450" Width="800"
         Style="{StaticResource Sty_Wnd}">
@@ -12,30 +13,49 @@
     <Window.Resources>
         <local:ColorToBrushConverter x:Key="color2brush"/>
         <local:PersonToBoolConverter x:Key="person2bool"/>
+        <local:GenderLocalisationConverter x:Key="genderLoc"/>
     </Window.Resources>
 
     <DockPanel Margin="5">
 
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Datei">
+            <MenuItem Header="{x:Static loc:Strings.LV_MeiDatei_Header}">
                 <MenuItem x:Name="Mei_Beenden"
-                          Header="Beenden"
+                          Header="{x:Static loc:Strings.LV_MeiBeenden_Header}"
                           Click="Mei_Beenden_Click"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static loc:Strings.LV_MeiSprache_Header}">
+                <MenuItem x:Name="Mei_Deutsch"
+                          Header="{x:Static loc:Strings.LV_MeiDeutsch_Header}"
+                          Click="ChangeLanguage"/>
+                <MenuItem x:Name="Mei_Englisch"
+                          Header="{x:Static loc:Strings.LV_MeiEnglisch_Header}"
+                          Click="ChangeLanguage"/>
             </MenuItem>
         </Menu>
 
         <WrapPanel DockPanel.Dock="Bottom"
                    HorizontalAlignment="Right"
                    Margin="10,0,10,5">
+            
+            <local:Juggler Width="50">
+                <local:Juggler.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform Y="-55"/>
+                        <ScaleTransform ScaleX="0.40" ScaleY="0.40"/>
+                    </TransformGroup>
+                </local:Juggler.RenderTransform>
+            </local:Juggler>
+            
             <Button x:Name="Btn_Neu"
-                    Content="Neue Person"
+                    Content="{x:Static loc:Strings.LV_BtnNeu_Content}"
                     Click="Btn_Neu_Click"/>
             <Button x:Name="Btn_Aendern"
-                    Content="Ändere Person"
+                    Content="{x:Static loc:Strings.LV_BtnAendern_Content}"
                     Click="Btn_Aendern_Click"
                     IsEnabled="{Binding ElementName=Dgd_Personen, Path=SelectedItem, Converter={StaticResource person2bool}}"/>
             <Button x:Name="Btn_Loeschen"
-                    Content="Lösche Person"
+                     Content="{x:Static loc:Strings.LV_BtnLoeschen_Content}"
                     Click="Btn_Loeschen_Click" 
                     IsEnabled="{Binding ElementName=Dgd_Personen, Path=SelectedItem, Converter={StaticResource person2bool}}"/>
         </WrapPanel>
@@ -47,19 +67,19 @@
                   AutoGenerateColumns="False"
                   MouseDoubleClick="Btn_Aendern_Click">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="*"/>
-                <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" Width="*"/>
-                <DataGridTextColumn Header="Geschlecht" Binding="{Binding Geschlecht}" Width="Auto"/>
-                <DataGridTextColumn Header="Geburtsdatum" Binding="{Binding Geburtsdatum, StringFormat=dd.MM.yyyy}" Width="Auto"/>
-                <DataGridTextColumn Header="Kinder" Binding="{Binding Kinder}" Width="Auto"/>
-                <DataGridTextColumn Header="Lieblingsfarbe" Binding="{Binding Lieblingsfarbe}" Width="Auto">
+                <DataGridTextColumn Header="{x:Static loc:Strings.M_Person_Vorname}" Binding="{Binding Vorname}" Width="*"/>
+                <DataGridTextColumn Header="{x:Static loc:Strings.M_Person_Nachname}" Binding="{Binding Nachname}" Width="*"/>
+                <DataGridTextColumn Header="{x:Static loc:Strings.M_Person_Geschlecht}" Binding="{Binding Geschlecht, Converter={StaticResource genderLoc}}" Width="Auto"/>
+                <DataGridTextColumn Header="{x:Static loc:Strings.M_Person_Geburtsdatum}" Binding="{Binding Geburtsdatum, StringFormat=dd.MM.yyyy}" Width="Auto"/>
+                <DataGridTextColumn Header="{x:Static loc:Strings.M_Person_Kinder}" Binding="{Binding Kinder}" Width="Auto"/>
+                <DataGridTextColumn Header="{x:Static loc:Strings.M_Person_Lieblingsfarbe}" Binding="{Binding Lieblingsfarbe}" Width="Auto">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{Binding Lieblingsfarbe, Converter={StaticResource color2brush}}"/>
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Verheiratet" Binding="{Binding Verheiratet}" Width="Auto"/>
+                <DataGridCheckBoxColumn Header="{x:Static loc:Strings.M_Person_Verheiratet}" Binding="{Binding Verheiratet}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>
